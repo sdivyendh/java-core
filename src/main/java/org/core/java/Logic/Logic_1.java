@@ -126,6 +126,14 @@ public class Logic_1 {
         }
     }
 
+    public static boolean presentElement(int[] array,int k){
+        for(int num : array){
+            if (num == k){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void main(String [] args){
 
@@ -137,12 +145,13 @@ public class Logic_1 {
 
         Fibnochi(5);
 
-
-
         int[] arr = {1,2,3,4,6,33,3,2,77,8};
         int tar = 36;
         int[] result = logic.two_sum(arr,tar);
         System.out.println("two sum  " + result[0] + result[1]);
+
+        System.out.println("true or false from new array " + presentElement(arr,6));
+
 
         System.out.println(logic.RevDeepu("Deeeepu"));
 
