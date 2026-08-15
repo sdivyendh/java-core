@@ -188,6 +188,38 @@ public class Logic_1 {
         return null;
     }
 
+
+    public int indexOfQuery(String mainString, String keyString){
+        return mainString.indexOf(keyString);
+    }
+
+    public int indexOfKey(String mainString, String key){
+        for (int i = 0; i<= mainString.length()-key.length(); i++){
+            int j = 0;
+            while(j < key.length() && mainString.charAt(i+j) == key.charAt(j)){
+                j++;
+            }
+            if (j == key.length()){
+                return i;
+            }
+        }return -1;
+    }
+
+    /*
+    * psudo code
+    * 1 : we need to run a loop up to where we should check the code
+    * 2 : initialise j as zero so that the each charactor starts from 0 to its maximum length
+    * 3 : give a while condition where we need to check j is less than the key  length and char at i+j position is equal to char of j position in key string
+    * if thats true then increase j
+    * and if value of j is getting equals to length of key
+    * then thats the first occurance
+    * at that point return the value of i which is going to be the index
+    * elase return -1
+    */
+
+
+
+
     public static void main(String [] args){
 
         Logic_1 logic = new Logic_1();
@@ -209,6 +241,8 @@ public class Logic_1 {
         System.out.println("true or false from new array " + presentElement(arr,6));
         System.out.println(logic.RevDeepu("Deeeepu"));
         System.out.println(Pal(232));
+        System.out.println("Index of key string from the mehtode ::: " + logic.indexOfQuery("geethanjaly" , "ee"));
+
 
         List<Integer> nums = new ArrayList<>();
         nums.add(10);
