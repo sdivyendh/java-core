@@ -126,6 +126,43 @@ public class Logic_1 {
         }
     }
 
+
+    public static void fibNochis(int number){
+    int first = 0;
+    int second = 1;
+    for (int i = 0; i<=number;i++){
+        System.out.println(first + ",");
+        int next = first + second;
+        first = second;
+        second = next;
+    }
+    }
+
+    public int[] twoSum(int[] array , int target){
+        for (int i = 0; i< array.length;i++){
+            for (int j = i+1; j< array.length; j++){
+                if (array[i] + array[j] == target){
+                    return new int[] {i,j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+
+    //remove element
+    public int removeElement(int[] nums, int val){
+    int k = 0;
+    for (int i = 0; i<nums.length;i++){
+        if (nums[i] != val){
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+    }
+
+
     public static boolean presentElement(int[] array,int k){
         for(int num : array){
             if (num == k){
@@ -133,6 +170,22 @@ public class Logic_1 {
             }
         }
         return false;
+    }
+
+
+    public Character firstNonRepeatingCharactor(String str){
+        Map<Character,Integer> frequency = new LinkedHashMap<>();
+
+        for (char c : str.toCharArray()){
+            frequency.put(c,frequency.getOrDefault(c,0)+1);
+        }
+        for (Map.Entry<Character, Integer> entry
+                : frequency.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 
     public static void main(String [] args){
@@ -150,11 +203,11 @@ public class Logic_1 {
         int[] result = logic.two_sum(arr,tar);
         System.out.println("two sum  " + result[0] + result[1]);
 
+        int[] resultNew = logic.twoSum(arr,tar);
+        System.out.println("two sum from new methode {} , {} " + resultNew[0]+ " : " + resultNew[1]);
+        System.out.println("remove element result ::: " + logic.removeElement(arr,8));
         System.out.println("true or false from new array " + presentElement(arr,6));
-
-
         System.out.println(logic.RevDeepu("Deeeepu"));
-
         System.out.println(Pal(232));
 
         List<Integer> nums = new ArrayList<>();
