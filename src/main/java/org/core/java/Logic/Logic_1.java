@@ -206,6 +206,31 @@ public class Logic_1 {
     }
 
     /*
+    itrate through the main string
+    initialise zero for first charactor of second string
+    check the conditions requirment
+    1: itrate through the second string
+    2: and charactor at define palace of first string is getting equals to charactor at define place pf second string
+    length of itratation becames length of second string
+    return value of i
+    else return -1
+     */
+
+    public int countOfkeyValue(String mainString, String key){
+        int count = 0;
+        for(int i = 0; i<= mainString.length()-key.length(); i++){
+            int j = 0;
+            while(j<key.length() && mainString.charAt(i+j) == key.charAt(j)){
+                j++;
+            }
+            if (j == key.length()){
+                count ++;
+            }
+        }
+        return count;
+    }
+
+    /*
     * psudo code
     * 1 : we need to run a loop up to where we should check the code
     * 2 : initialise j as zero so that the each charactor starts from 0 to its maximum length
@@ -216,7 +241,22 @@ public class Logic_1 {
     * at that point return the value of i which is going to be the index
     * elase return -1
     */
-
+public static void countAndIndexs(String mainString, String key){
+    int count = 0;
+    List<Integer> indexes = new ArrayList<>();
+    for (int i = 0; i<= mainString.length()-key.length(); i++){
+        int j = 0;
+        while (j < key.length() && mainString.charAt(i+j) == key.charAt(j)){
+            j++;
+        }
+        if (j == key.length()){
+            count++;
+            indexes.add(i);
+        }
+    }
+    System.out.println("count :: " + count);
+    System.out.println("indexes :: " + indexes);
+}
 
 
 
@@ -241,8 +281,10 @@ public class Logic_1 {
         System.out.println("true or false from new array " + presentElement(arr,6));
         System.out.println(logic.RevDeepu("Deeeepu"));
         System.out.println(Pal(232));
-        System.out.println("Index of key string from the mehtode ::: " + logic.indexOfQuery("geethanjaly" , "ee"));
+        System.out.println("Index of key string from the mehtode ::: " + logic.indexOfQuery("geethanjalyee" , "ee"));
+        System.out.println("result from length shorten methode for index value :::: "  + logic.countOfkeyValue("lalaDEEPUidGOINGDEEPU","DEEPU"));
 
+        countAndIndexs("geethanjalyee", "ee");
 
         List<Integer> nums = new ArrayList<>();
         nums.add(10);
