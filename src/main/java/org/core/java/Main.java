@@ -1,6 +1,6 @@
 package org.core.java;
 
-import org.core.java.Logic.Logic_1;
+import org.core.java.Logic.LogicTrial;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Logic_1 logic1 = new Logic_1();
+        LogicTrial logic1 = new LogicTrial();
         System.out.println(logic1.char_at_count("java",3));
 
 

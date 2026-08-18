@@ -4,7 +4,14 @@ import java.util.*;
 import java.lang.Runnable;
 import java.util.stream.Collectors;
 
-public class Logic_1 {
+public class LogicTrial {
+
+
+    @FunctionalInterface
+    public interface Calculator{
+        int calculator(int a, int b);
+    }
+
 
     public char char_at_count(String str, int count){
         return str.charAt(count);
@@ -69,16 +76,26 @@ public class Logic_1 {
         }
         return true;
     }
-
+/*
+let n be 63421
+digit = n % 10 = 1
+rev int  = 1
+n = 6342
+digit = 2;
+rev = 10+2 = 12;
+n = 634
+digit = 4
+rev = 124
+so on
+ */
     public static boolean Pal(Integer n){
-        int orgInt  = n;
         int reverseInt = 0;
         while (n>0){
             int digit = n%10;
             reverseInt = reverseInt * 10 + digit;
             n = n/10;
         }
-        return reverseInt == orgInt;
+        return reverseInt == n;
     }
 
     public List<Integer> converSion(int[] nums){
@@ -215,6 +232,11 @@ public class Logic_1 {
     return value of i
     else return -1
      */
+    public static void keyMapExample(){
+        Map<Integer,String> keyValueExample = new HashMap<>();
+        keyValueExample.put(1,"test");
+        System.out.println(keyValueExample);
+    }
 
     public int countOfkeyValue(String mainString, String key){
         int count = 0;
@@ -262,7 +284,12 @@ public static void countAndIndexs(String mainString, String key){
 
     public static void main(String [] args){
 
-        Logic_1 logic = new Logic_1();
+
+        Calculator sumOf = (a, b) -> a + b;
+        int result = sumOf.calculator(12, 34);
+        System.out.println(result);
+
+        LogicTrial logic = new LogicTrial();
         char c = logic.char_at_count("divyendhsuresh",5);
         System.out.println("char" + "  " + c);
 

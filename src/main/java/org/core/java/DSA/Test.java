@@ -23,6 +23,30 @@ public class Test {
         }return new int[0];
     }
 
+    public static boolean palindromIntiger(int number){
+        int reverseDigit = 0;
+        while(number>0){
+            int newDigit = number % 10;
+            reverseDigit = reverseDigit * 10 + newDigit;
+            number = number/10;
+        }
+        return reverseDigit == number;
+    }
+
+    public static boolean pakindromString(String key){
+        int len = key.length();
+        int left = 0;
+        int right = len-1;
+        while (left < right){
+            if (key.charAt(left) != key.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
     public static void main(String [] args){
         Test soul = new Test();
         int[] array = {1,2,3,4,5,6,7,8};
@@ -31,6 +55,9 @@ public class Test {
         System.out.println(soul.revStr("deepu"));
         int[] twosum = soul.twoSum(array,tar);
         System.out.println("resutl " + twosum[0]+" : "+ twosum[1]);
+
+        System.out.println("palindrom test will be :: " + palindromIntiger(1234321));
+        System.out.println("palindrom test from String :: " + pakindromString("deepeed"));
     }
 
 }
